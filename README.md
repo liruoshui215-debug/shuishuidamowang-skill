@@ -44,6 +44,7 @@
 完整短视频：[`assets/demo-v53.mp4`](assets/demo-v53.mp4)
 
 ## 📦 安装
+Download the latest ready-to-install Skill package from Releases.
 
 ### ChatGPT Skills
 
