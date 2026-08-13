@@ -93,12 +93,7 @@
 
 ## 📝 关于许可证
 
-这个公开发布包**暂时没有自动添加开源许可证**。在正式公开推广前，建议仓库作者选择一个许可证：
-
-- 想让别人自由使用、修改、再分发代码：可考虑 **MIT**
-- 想对展示图片 / Demo 单独规定署名方式：可以再为媒体资源设置单独许可
-
-这样可以避免在没有确认授权意图前替作者做不可逆的许可决定。
+This project is released under the MIT License. See LICENSE for details.
 
 ## English summary
 
