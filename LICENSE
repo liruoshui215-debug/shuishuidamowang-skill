@@ -1,21 +1,49 @@
-MIT License
+SHUISHUIDAMOWANG NON-COMMERCIAL LICENSE v1.0
 
-Copyright (c) 2026 liruoshui215-debug
+Copyright © 2026 侬若水. All rights reserved except for the permissions expressly granted below.
+抖音 / Douyin：侬若水
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. 允许的使用（免费）
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+在遵守本许可的前提下，个人用户可以免费将本项目用于：
+- 个人学习、研究与测试；
+- 非商业创作与个人作品展示；
+- 为上述非商业目的修改本 Skill；
+- 在保留作者署名与本许可说明的前提下，进行非商业分享或 GitHub Fork。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. 未经书面授权禁止的使用
+
+未经作者侬若水事先书面授权，不得：
+- 销售、出租、转售、再许可或以其他方式收费提供本 Skill、源码、打包版本或修改版本；
+- 将本 Skill 或修改版本封装为付费产品、会员功能、网站、App、插件、自动化服务、工作流或其他商业服务；
+- 以本 Skill 为核心或主要能力，为第三方提供收费的生成、设计、定制、代做或批量服务；
+- 将本 Skill 用于广告、品牌推广、电商、付费客户交付或其他以商业收益、商业优势或金钱报酬为主要目的的场景；
+- 删除、隐藏或误导性修改作者署名、来源说明或许可信息后重新发布；
+- 冒充本项目或其主要设计、规则、提示与实现为本人原创并进行商业化。
+
+3. 关于生成结果
+
+本许可主要约束对本 Skill 的使用，不主张拥有用户上传的第三方素材。
+但是，若使用本 Skill 的目的属于第 2 条所述商业场景，则该商业使用需要事先取得作者授权。
+普通个人用户在非收费、非商业推广的情况下展示或分享自己的生成结果，不需要额外授权。
+
+4. 商业授权
+
+如需商业使用、收费服务、品牌合作、产品集成或其他商业用途，请先联系作者取得授权。
+作者：侬若水
+抖音：侬若水
+
+5. 免责声明
+
+本项目按“现状”提供，不提供任何明示或默示担保。使用者应自行确认其输入素材、生成内容及使用场景符合适用法律、平台规则及第三方权利要求。
+
+---
+
+ENGLISH SUMMARY
+
+Free personal and non-commercial use is permitted with attribution. Commercial use requires prior written permission from the creator, including resale, paid packaging, paid generation services, commercial product/app/workflow integration, advertising, brand promotion, e-commerce, and paid client deliverables.
+
+This license primarily governs use of the Skill and does not claim ownership of third-party user inputs. Non-commercial users may share their own generated results. Commercial use of the Skill requires authorization.
+
+Creator: 侬若水
+Douyin: 侬若水
