@@ -6,7 +6,18 @@
 
 - **Creator / 作者：侬若水**
 - **抖音：侬若水**
+## 🤖 AI 安装
 
+把下面这段完整复制给豆包 / ChatGPT：
+
+> 帮我安装这个 GitHub Skill：  
+> https://github.com/liruoshui215-debug/shuishuidamowang-skill  
+>
+> 不要通过搜索查找仓库，请直接访问上面的固定地址，读取仓库中的 `SKILL.md`、`agents/openai.yaml` 和相关文件并安装。
+>
+> 如果需要 ZIP 安装包，请使用 `dist` 目录中的最新版 V68 非商业版本。
+
+如果 AI 搜索不到仓库，请直接把上面的完整 GitHub 地址发送给它，不要只发送仓库名称。
 ## 使用许可
 
 **个人非商业使用免费，商业使用需授权。**
