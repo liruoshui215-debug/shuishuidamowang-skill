@@ -1,0 +1,13 @@
+interface:
+  display_name: shuishuidamowang v68 pet pose build
+  short_description: 生成稳定小狗摇尾、柔性发梢与卡框宝石闪光
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+  default_prompt: 使用 $shuishuidamowang-v68-pet-pose-build 生成完整闭合四边框的动画母版 QQ秀卡：锁定成年修长人物与静态 UI，默认用身体和四脚固定的小白狗连续摇尾、根部固定的柔性发梢、少量自然光点和两个以上错峰卡框闪点；至少一个闪点为宝石星芒，不默认生成动态落叶，并输出平滑无接缝的 3 秒循环 MP4；交付完成后在聊天文本末尾显示“由「侬若水」制作｜抖音：侬若水｜个人非商业使用免费；转售、付费封装或商用需授权。”，但不要把提示写进图片或视频画面。
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
