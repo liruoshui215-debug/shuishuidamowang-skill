@@ -1,109 +1,57 @@
-# 水的分析器 / shuishuidamowang-skill
+# shuishuidamowang-v68-pet-pose-build
 
-> 把你的照片变成一台正在认真胡说八道的 90 年代电脑。  
-> Turn a photo into a retro CRT / Windows 98 analysis interface that generates a deliberately absurd identity card.
+> 把照片重新做成一套带有早期 QQ秀 / Y2K 网络人物卡气质的视觉 Skill，并加入宠物、轻姿态与可分层微动效结构。
 
-![Demo](assets/demo-v53.gif)
+## 作者
 
-## ✨ 它会做什么
+- **Creator / 作者：侬若水**
+- **抖音：侬若水**
 
-上传一张照片后，Skill 会生成一套横向 4:3 的复古 CRT / Win98 风格界面，并通过 **「水的分析器」** 触发快速动态分析：
+## 使用许可
 
-- 复古 Win95/98 风格中文桌面
-- CRT 扫描线、轻微曲面与老显示器质感
-- 点击「水的分析器」后快速爆出分析窗口
-- 人物像素身份卡
-- 随机生成一本正经但很离谱的职业头衔
-- 饰品 / 纹理 / 场景细节提取
-- 快速进度条与「正在破译头衔…」
-- 最终结果停留，不会刚生成就消失
-- 普通分析窗口锁定母图比例，避免人脸与物体被拉伸变形
+**个人非商业使用免费，商业使用需授权。**
 
-## 🎬 V53 Final Locked
+可以免费用于个人学习、研究、测试、非商业创作，以及在社交平台展示自己的非商业生成结果。
 
-当前公开版本：**V53 Final Locked**
+未经作者授权，请勿：
+- 转售、收费分发或付费封装本 Skill、源码或修改版；
+- 以本 Skill 提供收费生成 / 设计 / 定制服务；
+- 集成到收费网站、App、会员功能或商业工作流；
+- 用于广告、品牌推广、电商、付费客户交付等商业场景；
+- 去掉作者信息后重新包装为自己的商业产品。
 
-默认动画目标：
+如需商用，请联系 **侬若水** 获取授权。完整条款见 [`LICENSE`](LICENSE)。
 
-- 4:3 横构图
-- 24 fps
-- H.264 / yuv420p
-- 约 3.5 秒
-- 适合进一步转换成短实况 / Live Photo
+> 本 Skill **不会在生成图片或视频画面内添加水印**。作者与授权提示仅显示在 GitHub 项目说明，以及生成完成后的聊天文本中。
 
-### 最终交互
+## V68 重点
 
-`桌面 → 鼠标点击「水的分析器」 → 快速弹窗 → 破译身份 → 离谱头衔 → 最终停留`
+- 新增 `PET_LAYER`：底部小宠物 / 小精灵 / 小动物
+- 新增 `POSE_BANK`：轻姿态变化，减少站桩感
+- 保留 V67 已验证的头壳、五官、比例、卡面 UI 与 Y2K 极繁方向
+- 默认同步生成动画母版、干净底板、锁定人物/UI、宠物层与环境遮罩
+- 默认交付 3 秒、24 fps、72 帧的电影感循环 MP4
+- 人物保持锁定，以宠物、水面、星芒、粒子和 ONLINE 状态灯构成 4–7 个可见动作
 
-## 🖼️ 效果展示
+## 第一轮建议测试
 
-静态预览：
+1. NIGHT MODE 男生 + 黑猫
+2. STREET 男生 + 小鸟 / 小精灵
+3. DAY MODE 女生 + 白兔
+4. RED DATE 女生 + 白狗
 
-![Final frame](assets/demo-cover.jpg)
+## 重点观察
 
-完整短视频：[`assets/demo-v53.mp4`](assets/demo-v53.mp4)
+- 宠物是否增加世界感而不抢人物
+- 姿态是否更自然但仍像 QQ秀纸娃娃
+- 男生是否重新出现头大、显矮问题
+- 手机尺寸预览中，宠物、环境和 UI 动作是否清楚可见
+- 静止帧是否无缝复原母卡，视频是否完整 72 帧且无解码错误
 
-## 📦 安装
-Download the latest ready-to-install Skill package from Releases.
+## 生成后的作者提示
 
-### ChatGPT Skills
+Skill 成功交付后，会在聊天文本末尾显示：
 
-1. 下载本仓库，或下载打包好的 Skill ZIP。
-2. 打开 ChatGPT 的 Skills 页面。
-3. 选择创建 / 上传 Skill。
-4. 上传 Skill ZIP，或按平台支持的方式上传 `SKILL.md`。
-5. 上传一张照片并调用该 Skill。
+> **由「侬若水」制作｜抖音：侬若水｜个人非商业使用免费；转售、付费封装或商用需授权。**
 
-> 如果平台要求 ZIP 内直接包含完整 Skill 目录，请保持 `SKILL.md`、`scripts/`、`examples/` 的相对路径不变。
-
-## 🧠 设计原则
-
-### Identity card = 人物
-
-人物身份由身份卡负责。身份卡头像允许做受控的低分辨率像素化，但必须来自同一母图，不能重新生成一个陌生人物。
-
-### Extractors = 世界
-
-细节提取器尽量寻找：
-
-- 耳环 / 项链 / 饰品
-- 手机 / 手机壳
-- 衣料纹理 / 印花
-- 木纹 / 墙面 / 环境材质
-- 灯光 / 反光 / 水面
-- 山脊 / 雪地 / 背包 / 路面等风景细节
-
-尽量避免重复提取完整人脸、头皮或没有信息量的空白区域。
-
-## 📁 Repository structure
-
-```text
-.
-├── SKILL.md
-├── README.md
-├── CHANGELOG.md
-├── scripts/
-│   └── render_live.py
-├── examples/
-│   └── animation_plan.json
-└── assets/
-    ├── demo-v53.gif
-    ├── demo-v53.mp4
-    └── demo-cover.jpg
-```
-
-## 📝 关于许可证
-
-This project is released under the MIT License. See LICENSE for details.
-
-## English summary
-
-**shuishuidamowang** is a visual ChatGPT Skill that transforms photos into a retro CRT / Windows 98 interface. A user clicks the “水的分析器” launcher, analysis windows snap open, the system extracts source-locked visual details, creates a pixel identity card, rapidly “decodes” a ridiculous job title, and holds the completed result for readability.
-
-The V53 Final Locked build emphasizes:
-- fast under-4-second pacing,
-- source-locked non-distorted popup imagery,
-- asymmetrical Win98-style window composition,
-- pixel identity portrait,
-- multiple non-face detail extractors,
-- and a final no-retreat display state.
+该提示不会写进生成图片或视频。

@@ -1,235 +1,504 @@
 ---
-name: shuishuidamowang-v53-final-locked
-description: Creates a retro CRT/Windows 98 style photo animation with a polished desktop shell, click-triggered Shui Analyzer, source-locked popup images, a more pixelized identity card portrait, richer asymmetric popup composition, faster decoding rhythm, and a readable final hold state that stays open after the absurd title is revealed.
+name: shuishuidamowang-v68-pet-pose-build
+description: 默认生成 1024×1536、2:3 竖版的 QQ秀2000 / 早期 Y2K 像素换装卡，并交付 3 秒、24 fps 的场景电影感循环 MP4 与静态 PNG；锁定成年修长人物、完整闭合卡框与静态 UI，默认使用身体落地的小白狗连续摇尾、根部固定的柔性发梢和卡框宝石错峰闪光，不默认生成动态落叶，只有原生安全分层时才使用兔耳动作，拒绝断耳断尾、漂浮碎片、整只宠物僵硬跳动、背景矩形扭曲、Q 版人物、脸部漂移、掉帧、重影和接缝。
 ---
 
-# shuishuidamowang v53 — Final Locked
+# SHUISHUIDAMOWANG V68 · PET + POSE BUILD
 
-## Version intent
+## 目标
+把输入人物照片或既有 QQ秀角色，生成统一母版的 QQ秀2000 风格卡面，并默认交付可播放的 3 秒高动效循环视频。
 
-V53 Final Locked is the **locked final release** built on top of V52/V53 polish.
+本版本重点升级：
+1. 加入 **PET_LAYER**：底部宠物、小精灵、小动物，增强世界感与动效抓手。
+2. 加入 **POSE_BANK**：减少人物“站桩感”，让角色有轻微姿态变化。
+3. 强制 **ORGANIC_MOTION**：宠物局部关节变化优先，户外长发默认准备安全发梢，卡框使用局部错峰闪光；动态落叶默认关闭，环境动效宁少勿乱。
 
-This version does **not** replace the proven core structure. The verified mechanism stays locked:
+---
 
-**desktop → cursor move/click → 水的分析器触发 → burst popups → fast decode → absurd title reveal → completed final hold**
+## 总体风格定义
 
-V53 only refines the visual finish and readability:
-- make the desktop shell feel more like a believable Chinese Win98 environment;
-- make the first burst composition less plain and more aesthetically arranged;
-- keep popup positions more asymmetrical and lively instead of too fixed;
-- keep the identity card portrait more obviously pixel/cartoon-like;
-- preserve the under-4-second pacing and final hold readability.
+### 核心美术方向
+- 参考早期 QQ秀 / QQ秀2000 / Y2K 网络换装页
+- 整体为 **像素感、精致但略带年代感、偏极繁装饰、轻土但迷人**
+- 画面要有“2004-2008年网络虚拟形象卡片”的感觉
+- 不能太现代极简，不能太高级冷淡风
+- 要保留一点老时代审美下的“甜、闪、满、装饰感重”的气质
 
-## 1. Hard lock: do not change the proven core behavior
+### 基础视觉特征
+- 像素化边缘与低分辨率归纳感
+- 精致装扮角色站在完整主题场景中
+- 带标签、边框、在线状态、编号、分类名、年代感UI角标
+- 色彩不必克制，可略饱和、略闪、略梦幻
+- 氛围元素可包括：卡框闪点、花瓣、光斑、萤火、小星星、漂浮粒子；动态落叶不作为默认效果
 
-The following behaviors are now considered stable and should remain unchanged unless a future version is explicitly experimental:
-- 4:3 landscape output;
-- short visible cursor move followed by a clear click;
-- popup burst triggered by **水的分析器** rather than random photo clicking;
-- no slide-in motion;
-- fast progress bar;
-- 2–3 detail extractors;
-- absurd identity title generation;
-- final completed state remains open and does not retreat.
+---
 
-## 2. Duration target
+## 核心锁定规则（必须遵守）
 
-### Required duration
-- preferred total duration: **3.2–3.8 seconds**;
-- recommended default target: **3.4–3.6 seconds**;
-- 24 fps.
+### 1. HEAD_SHELL_LOCK
+头型必须保持稳定。
+- 男生：头壳不能忽大忽小，不能突然变圆、变宽、变成幼态Q版大头
+- 女生：头壳也必须固定，不能时而偏成熟、时而偏幼态
+- 同一角色跨不同主题图时，头壳尺寸与轮廓应保持统一
 
-### Intent
-The whole piece must stay short enough for social/live conversion while still making the reveal readable.
+### 2. FACE_PANEL_LOCK
+五官必须是“同一角色系列内的可替换表情面板”逻辑，不可完全重塑。
+- 表情变化来自眼睛、眉毛、嘴巴、泪滴、腮红、wink、惊讶口型等组合
+- 不是每次重新生成一张全新脸
+- 同一角色应有同一套五官基础框架
 
-## 3. Final hold remains mandatory
+### 3. BODY_RATIO_LOCK
+人物比例要稳定。
+- 使用成年、修长、半写实换装人偶比例：站立人物默认 8.0–8.5 头身，头部约占全身 11.5%–12.5%；禁止落到偏幼态的 7.5 头身或大头 Q 版。
+- 站立人物占画布高度约 68%–75%；坐姿约 60%–66%；始终保留完整头顶、手脚和鞋。
+- 男生不能显得越来越矮、头越来越大
+- 女生不能因为放在一起对比就显得头身比例过度成熟或过度纤细
+- 双人并排时，比例要协调，但不要强行同模
 
-### Rule
-After the identity/title is revealed, the interface must remain in the **completed expanded state**.
+### 4. TYPOGRAPHY_LOCK
+卡面文案与标签字样必须更工整。
+- 字要清楚
+- 有QQ秀式UI标签感
+- 不要丑字、糊字、歪字
+- 可以中英混搭，但统一世界观
 
-### Required behavior
-- do **not** retreat to the empty desktop;
-- do **not** shut all windows;
-- do **not** cut away immediately;
-- the final title must stay readable.
+### 5. CARD_FRAME_LOCK
+边框要完整闭合、结构统一，形成系列识别；这是成图硬门槛，不是装饰建议。
+- 母卡固定 1024×1536、2:3 竖版；不得改成 4:5、1:1 或直接裁成 9:16。
+- 必须同时存在并连续连接：顶部主题牌、左侧装饰轨、右侧装饰轨、左上/右上/左下/右下四角锚点、底部功能栏。
+- 四边必须在画布内完整可见并围合中央场景；禁止断边、缺角、被裁切、左右轨忽粗忽细、底栏消失或场景覆盖到边框上。
+- 顶部主题牌与底栏必须有清楚的像素 UI 外壳；左右轨至少各有 2 个重复装饰节点，四角需用花、心、宝石、贝壳、链条或星形完成结构收口。
+- 不同主题卡可更换材质、颜色和装饰，但框体几何层级与闭环关系不可改变。
+- 生成时单独输出全画布透明 `frame-ui.png`；中央场景透明，完整框体与全部文字/UI 不透明，并在合成中倒数第二层覆盖。
+- 成图前按 [系列母版锁定规则](references/series-locks.md) 检查四角、四边与底栏；任一缺失即重新生成，不进入视频阶段。
 
-### Required final hold duration
-- preferred final hold: **0.9–1.2 seconds**;
-- minimum acceptable hold: **0.7 seconds**.
+### 6. SERIES_MASTER_LOCK
 
-### Final hold windows
-The final state should keep visible, space permitting:
-- main preview window;
-- 人物身份卡;
-- 分析进度;
-- 水的分析器;
-- 2–3 detail extractors;
-- palette / properties / support windows.
+五张既有成片共同定义系列母版。生成前必须阅读 [系列母版锁定规则](references/series-locks.md)，并逐项执行：2:3 画幅、顶部主题牌、完整四边框、成年修长全身人物、脚边小宠物、ONLINE/LOOK/年份/音乐/条码 UI、主题化完整场景。主题可变，几何结构与比例不可漂移。
 
-## 4. Final hold must stay alive, not frozen dead
+---
 
-Allowed micro-motion during the hold:
-- CRT scanline shimmer;
-- subtle cursor blink / idle flicker;
-- tiny status light flicker;
-- progress bar resting at 100%;
-- gentle monitor noise.
+## 角色生成规则
 
-Avoid:
-- retreat animation;
-- repeated loop resets;
-- large window motion;
-- scanning face box animation.
+### 男生角色方向
+- 气质：通勤、夜行、街头、漫游、轻酷、冷淡、都市感
+- 常见服装：西装、衬衫、通勤外套、工装外套、暗色休闲装、夜行黑系穿搭
+- 配件：手机、耳钉、项链、斜挎包、手表
 
-## 5. Progress bar and decode rhythm
+### 女生角色方向
+- 气质：甜美、约会、漫游、水岸、柔和、浪漫、轻复古
+- 常见服装：连衣裙、吊带裙、针织上衣、半裙、甜妹套装、轻法式装
+- 配件：耳环、项链、手链、小包、发饰
 
-The progress bar is only a rhythm device and should complete quickly.
+---
 
-### Recommended milestones
-- 12% 正在读取人物样本…
-- 34% 正在建立像素档案…
-- 58% 正在检测异常特征…
-- 76% 正在匹配职业身份…
-- 90% **正在破译头衔…**
-- 100% **头衔破译完成**
+## POSE_BANK（新增）
+目标：减少站桩感，但仍保留 QQ秀式“换装展示姿”。
 
-### Rule
-- progress should feel brisk, not slow or suspenseful;
-- identity card reveal should happen early;
-- the final hold must happen soon enough to read the title.
+### 可用姿态模板
+选择其中一个，或根据主题自动匹配：
 
-## 6. Identity card is a shareable comedic feature
+#### POSE_01_STANDARD
+- 正面标准站姿
+- 双手自然下垂
+- 用作基准卡
 
-### Required behavior
-- the identity card should appear early and remain through the ending;
-- it must show a **clear pixel portrait**;
-- the pixel portrait should feel slightly more cartoon / low-res than a normal crop;
-- name / status / absurd title must remain readable in the final hold.
+#### POSE_02_WEIGHT_SHIFT
+- 重心偏移
+- 一侧肩略低
+- 一条腿微放松
+- 适合通勤 / 漫游 / 日常
 
-### Identity portrait style rule
-The portrait should follow:
+#### POSE_03_PHONE_SHOW
+- 一只手持手机
+- 另一只手自然下垂
+- 适合 STREET / NIGHT MODE / ONLINE 感卡面
 
-**head/shoulder crop → proportional crop → low-resolution reduction → 12–18 color quantization → nearest-neighbor enlargement**
+#### POSE_04_OPEN_ARMS_SOFT
+- 双手轻轻打开
+- 适合甜妹 / 约会 / 女生卡面
 
-The result should look like a retro pixel avatar, not just a tiny realistic thumbnail.
+#### POSE_05_ONE_FOOT_FORWARD
+- 一脚略向前
+- 有轻微行走感
+- 适合 DAY MODE / 漫游 / 街头
 
-## 7. Detail extractor logic
+#### POSE_06_MICRO_TURN
+- 身体轻微侧转约10°-15°
+- 脸保持接近正面
+- 让画面更有层次
 
-### Core separation rule
-**Identity card = person**  
-**detail extractors = object / texture / environment / accessory**
+#### POSE_07_HOLD_ITEM
+- 手拿花、咖啡、小包、手机等
+- 适合约会 / 城市日常
 
-### Priority order
-Prioritize 2–3 extractors from:
-1. accessories (earrings, necklace, bracelet, bag hardware)
-2. phone / phone-case / handheld object details
-3. clothing texture / collar / folds / print
-4. environment texture (wood grain, wall, tile, pavement)
-5. light source / reflection / signage / water reflection
-6. landscape detail (ridge, snow texture, backpack, path, rock surface)
+#### POSE_08_SOFT_GIRL_DETAIL
+- 女生可一手微扶裙摆 / 微扶头发
+- 注意动作幅度小，保持QQ秀逻辑
 
-### Avoid strongly
-If the identity card already uses the head crop, then detail extractors should **not** use:
-- full-face crops;
-- scalp-only crops;
-- hair-top crops;
-- empty forehead fragments;
-- blank dark corners;
-- empty flat wall fragments unless the texture itself is clearly interesting.
+### 姿态规则
+- 姿态只能是“轻变化”
+- 不能夸张扭曲
+- 不能让服装结构崩坏
+- 手部允许简化，不追求真人复杂手势
 
-## 8. Window composition should feel more designed
+---
 
-This is a key V53 polish point.
+## PET_LAYER（新增）
+目标：让卡面更有生命感、故事感和微动空间。
 
-### Composition rule
-The popup burst should feel like an intentional **clustered desktop composition**, not a rigid grid.
+### 宠物库
+按主题可加入以下一种：
 
-### Required behavior
-- allow windows to appear on both left and right sides;
-- keep the first major popup richer, less plain, and visually anchored;
-- use asymmetrical spacing so the composition feels lively;
-- keep enough negative space so the subject remains readable.
+#### PET_01_WHITE_DOG
+- 小白狗
+- 甜、陪伴感强
+- 适合 RED DATE / SWEET GIRL / DAY MODE
 
-### Suggested structure
-- main preview window = primary focal anchor;
-- identity card = medium secondary window;
-- progress/analyzer window = compact support;
-- 2–3 detail extractors = small asymmetric satellites;
-- palette / properties windows = visual balance helpers.
+#### PET_02_BLACK_CAT
+- 小黑猫
+- 适合 NIGHT MODE / 都市夜行
 
-### Avoid
-- all windows stacking in one identical column;
-- overly fixed right-side-only layouts;
-- repetitive equal spacing that feels mechanical.
+#### PET_03_WHITE_RABBIT
+- 小白兔
+- 适合甜系、约会、草地漫游
 
-## 9. Desktop shell polish remains mandatory
+#### PET_04_PIXEL_BIRD
+- 小鸟 / 鹦鹉 / 小像素鸟
+- 适合个性卡、街头卡
 
-### Required desktop presence
-- visible Win98-style desktop icons with cleaner shapes;
-- classic left icon stack;
-- believable taskbar, start button, and system clock;
-- icon labels legible;
-- no empty or rough cheap-looking desktop.
+#### PET_05_MINI_SPIRIT
+- 小幽灵 / 小精灵 / 小像素灵体
+- 适合 Y2K / 电玩 / 夜景主题
 
-### Preferred desktop icon pool
-Use 4–7 icons chosen from:
-- 我的电脑
-- 我的文档
-- 回收站
-- 图片
-- 工具箱
-- 画图
-- Internet Explorer
-- 水的分析器
-- 相机导入
+#### PET_06_BEAR_TOY
+- 小熊玩偶宠物感
+- 适合可爱系室内图
 
-### Aesthetic note
-Icons should feel more polished than rough placeholder blocks.
+### 宠物位置
+- 默认在人物脚边、底部偏左或偏右
+- 不可挡住人物主体
+- 不可抢脸部注意力
+- 犬、猫、兔、熊默认占画布高度 10%–16%，约为人物高度的 18%–28%；不得低于画布高度 10%
+- 鸟、小精灵可缩至画布高度 7%–11%，但轮廓宽度与表情仍须在 512×768 预览中可辨
+- 深色宠物不得放在同色暗背景；必须使用轮廓光、浅色接触影或错开位置形成明度分离
+- 宠物必须完整位于中央场景安全区，不能藏在底栏、侧轨、鞋子、桌椅或大面积阴影后面
 
-## 10. Source-lock / anti-distortion rule
+### 宠物行为（静态图中暗示，动图时可循环）
+- 轻摇尾
+- 轻跳
+- 歪头
+- 小步移动
+- 看向人物
+- 坐卧休息
 
-All popup imagery must remain geometry-safe.
+视频默认只选摇尾、抬耳/垂耳、歪头、呼吸或轻步中的一个主动作。默认优先小白狗摇尾：锁定身体与四脚，尾巴放在身体后层围绕尾根连续摆动，并由身体覆盖连接处。兔子只有在生成母版时已获得原生独立耳层、且 72 帧碎片检测始终通过时才使用；禁止从扁平兔子裁耳，无法可靠分层就自动改用小狗。只有已有高质量逐格素材时才用 5–9 格 sprite，24 fps 下 `frame_hold` 不超过 3。犬猫兔熊禁止只靠 PET_ROOT 整体平移/旋转：根节点位移默认不超过 6 px、旋转不超过 2.5°。动作可以少，但不能像贴纸升降。默认禁止宠物眨眼。
 
-### Rule
-All ordinary popup images must come from the same mother frame using:
-- proportional crop;
-- contain or cover-crop fit;
-- no non-uniform stretching;
-- no squeezed or widened faces;
-- no identity redraw in ordinary popup windows.
+---
 
-### Identity card exception
-The identity-card portrait may be pixel-stylized as described above, but it must still remain clearly the same person.
+## FACE_PANEL（表情面板）
+同一角色的表情变化应来自面板切换，而不是完全换脸。
 
-## 11. Popup motion / trigger behavior
+### 推荐表情组
+#### FACE_01_NEUTRAL
+- 默认平静
 
-### Rule
-- short readable mouse move;
-- click **水的分析器**;
-- windows appear only after the click;
-- windows open with snap-open state changes;
-- no slide-in motion;
-- no face-scan rectangle.
+#### FACE_02_SOFT_SMILE
+- 轻笑
 
-### Important ending rule
-For default V53 social/live output, the piece must still end on the completed expanded state and **not retreat before cut**.
+#### FACE_03_WINK
+- 单眼wink
+- 适合甜系、俏皮卡
 
-## 12. Visual tone
+#### FACE_04_CRY_SOFT
+- 微泪、委屈
+- 泪滴小
+- 适合情绪图
 
-Preserve:
-- CRT monitor texture;
-- Chinese Win95/98-like shell;
-- blue title bars and gray classic panels;
-- 4:3 output;
-- humorous absurd identity-card energy;
-- shareable final reveal.
+#### FACE_05_CRASH_CRY
+- 哭得更明显
+- 大泪线
+- 适合戏剧效果强的图
+
+#### FACE_06_SLEEPY
+- 困倦、垂眼
+- 适合夜景 / 安静情绪
+
+#### FACE_07_SURPRISE
+- 圆眼 / O型嘴
+- 适合可爱主题
+
+#### FACE_08_SWEET_BRIGHT
+- 大眼、甜笑、轻腮红
+- 适合女生甜系卡
+
+### FACE_FX 可叠加项
+- 泪滴
+- 腮红
+- 星星眼高光
+- 眼下轻阴影
+- 小爱心
+- wink强调线
+- 微发光妆感
+
+---
+
+## CATEGORY_BANK（主题类别）
+成品卡必须明确属于某个主题类别，并在画面中以标题或标签方式表现。
+
+### 可选主题
+#### 1. RED DATE
+- 约会感
+- 红裙、暖调、爱心、黄昏、水岸、浪漫夜景
+
+#### 2. DAY MODE
+- 白天漫游
+- 草地、树影、阳光斑驳、公园、轻旅行
+
+#### 3. NIGHT MODE
+- 夜行
+- 夜巷、街灯、蓝色光点、湿地反光、冷暖对比
+
+#### 4. STREET
+- 都市街头
+- 墙面、路边、工业感小物、在线状态标签
+
+#### 5. SWEET GIRL
+- 室内甜妹 / 咖啡馆 / 温暖木质空间 / 吊灯 / 甜美穿搭
+
+#### 6. CITY FORMAL
+- 都市正装
+- 通勤、西装、街区、路灯、写字楼感
+
+#### 7. WATERSIDE
+- 水岸 / 河边 / 湖边 / 桥边
+- 氛围浪漫或安静
+
+#### 8. CASUAL ONLINE
+- 日常在线状态卡
+- 带ONLINE标签、条码、编号、轻科技装饰
+
+---
+
+## 背景与卡面规则
+
+### 背景
+- 背景不是简单平涂，要有完整场景感
+- 但不能过度写实，仍要服务像素化人物
+- 场景要和人物主题匹配
+- 可有景深，但主体人物必须清晰居中
+
+### 边框与装饰
+- 有系列感的像素装饰边框
+- 可加入：心形、条码、标签、在线状态、小图标、年代编号、音乐符号、角花
+- 男卡偏深蓝/棕金/黑金
+- 女卡偏粉金/奶油/桃粉/红棕
+
+### 标签文字
+- 应清楚、规整、有设计感
+- 示例：
+  - RED DATE
+  - DAY MODE
+  - NIGHT MODE
+  - STREET 05
+  - LOOK 03
+  - ONLINE
+  - 2004 / 2005
+
+---
+
+## CINEMATIC_SCENE_MODE（默认 3 秒电影感循环）
+
+只要通过本 Skill 生成新角色或新卡面，就默认进入 CINEMATIC_SCENE_MODE；即使用户没有写“视频”“动图”或“微动”，也必须实际输出 3 秒 MP4。只有用户明确说“只要静态图”“不要视频”时才允许停在 PNG。
+
+静态成图只是动画母版，不得先生成扁平 JPG 再强行拆层。生成母卡时同步准备 `reference`、`clean_plate`、`locked_overlay`、锁定人物层、PET 动作层和环境遮罩；然后运行视频合成脚本。不得在图像生成结束后直接回复“已完成”。
+
+### 稳定合成原则
+
+- 同时准备原始母卡、已移除宠物与活动环境元素的干净底板、完整锁定人物层、独立宠物层和只含边框/UI 的锁定前景；禁止在仍含原对象的母卡上重复叠加移动裁片。
+- 默认使用五个系统：LOCKED_CHARACTER、PET_ROOT、ENVIRONMENT、LOCKED_FRAME_UI、FRAME_FX。人物主体允许完全静止，不再为了凑动作强制移动身体或头部。
+- 每条视频保留 5–8 个肉眼可见动作：宠物 1 个、发梢/衣摆 1 个、环境 1–2 个、状态灯 1 个、外框局部动效 2–3 个；动作按“环境微动 → 宠物响应 → 外框局部闪点/UI 收尾”的因果顺序错峰发生。
+- 固定遮挡顺序：环境后景 → 锁定人物 → 宠物尾/后层 → 宠物身体/前层 → 环境前景 → 完整锁定卡框/UI → 仅限边框安全区的 FRAME_FX。
+- 所有活动层从中性帧开始并回到中性帧；静止合成必须像素级复原原始母卡。
+- 宠物耳尖/尾端/头部轮廓主变化约 8–24 px；普通宠物根节点只允许 0–6 px 辅助位移。水面/反光仅在真实水面或镜面反射区移动 6–18 px；星芒扩张至少 4 px。
+- 人物脸、刘海、脸旁内层头发、耳饰、躯干和手部完全锁定；禁止人物与宠物眨眼。户外长发或画面有风时，必须使用独立发梢/外层下半段透明层，以根部固定、位移向末端递增的 `tip_sway` 连续形变移动 3–7 px，不得整束刚体旋转或扫过脸。
+- 首尾必须无缝，不做大幅镜头推拉、摇移或转场。
+
+### 推荐动点
+#### 人物
+- 默认锁定主体；户外长发/有风场景必须让安全发梢层轻动，短发或无风室内才可完全静止
+- 发梢、外层下半段头发、裙摆左右两片或围巾末端随风；使用根部固定、末端渐强的连续弯曲，左右片可使用不同相位
+- 脸、眼睛、刘海和贴脸发丝保持静止；默认取消人物眨眼
+- 不做身体根节点摇摆
+
+#### 环境
+- 只有真实水面/镜面反射可横向流动；无水场景禁用矩形区域扭曲
+- 星芒放大、亮灭并错峰出现
+- DAY/GREEN 户外默认不生成动态落叶；优先使用少量独立光点、萤火或自然光斑。只有用户明确要求落叶时才启用独立叶片，并禁止截取树丛、草地或墙面晃动
+- 路灯或远景反光轻微呼吸
+
+#### 宠物
+- 优先使用小白狗连续摇尾或猫尾摆动；身体与落地脚保持锁定，尾根必须由身体前层覆盖。兔耳只允许使用生成阶段获得的原生独立层，不得从扁平图裁切；逐格素材仅在足够顺滑时使用，至少 3 个不同轮廓且 `frame_hold<=3`
+- 同一循环只选择一个主动作，可附带一个很小的次动作
+- 身体与尾巴使用父子运动组，尾巴连接处必须由身体前层遮挡
+- 默认取消宠物眨眼，避免眼型突然塌陷或整张脸闪变
+- 先在静态母卡中把宠物生成到目标尺寸，再制作动作帧；不得用后期锐化或发光掩盖过小素材
+- 必须单独渲染 PET_ONLY 预览做差分检查；环境、外框和状态灯的变化不能计入宠物动作成绩
+
+#### FRAME_FX（外框局部动效）
+- 只在完整静态外框之上添加局部效果：角部宝石星芒、顶部主宝石闪点、侧轨灯珠追光、心形徽章柔光、音乐图标短促脉冲。
+- 默认准备 2–4 个局部闪光动作，同一时刻只激活 1–3 个点，沿四边错峰出现；优先“左上宝石 → 顶部主宝石 → 右侧灯珠 → 底部徽章”的环形节奏。
+- 星芒半径 4–10 px，图标光环外扩 3–8 px；效果在首尾回到零强度。
+- 禁止整圈边框呼吸缩放、整体变色、左右漂移、几何变形、频闪；标题文字、ONLINE、LOOK、年份和条码本体不得闪烁。
+- FRAME_FX 必须经过外框安全区检查，不得进入中央场景、人物脸或文字笔画。
+
+### 动效原则
+- 固定 3.0 秒循环，24 fps，共 72 帧
+- 同时具备：宠物主动作、安全发梢/衣摆、至少一种语义正确的环境运动、UI 状态灯和至少两个错峰 FRAME_FX，其中必须包含宝石星芒
+- 人物保持稳定优先于动作数量；不得通过移动人物来补足动作数
+- 72 帧不得出现意外重复帧、解码错误或突然的帧差峰值
+- 不要做大幅镜头运动
+- 不要破坏静态母卡构图
+- GIF 仅作预览时也必须至少 12 fps、3 秒不少于 36 帧；禁止交付 8 fps / 24 帧的低帧率预览
+
+### 实际制作流程
+
+1. 固定生成 1024×1536、2:3 母卡；平台需要 9:16 时，把完整卡居中放入 1080×1920，禁止裁掉卡框。
+2. 先生成动画母版并执行 SERIES_MASTER_LOCK；标注场景语义。无水场景不得创建矩形区域扭曲，户外风场景准备安全发梢素材；动态落叶默认不准备，除非用户明确要求。
+3. 将图像生成工具选中的成图从 `$CODEX_HOME/generated_images/` 复制到工作区；不要依赖预览图或聊天截图。
+4. 生成 `reference`、`clean_plate`、完整 `frame-ui.png`、可选 `frame-fx-mask.png`、`character_locked`、锁定 PET 身体、独立耳/尾/头等局部动作层和环境素材；使用 `motion_profile: cinematic_scene` 配置运行脚本。
+5. 运行 `pet_validation`：除尺寸、遮挡与 PET_ONLY 差分外，检查锁定身体、连续关节层、轮廓碎片率、sprite 节奏、相邻格突变和根节点位移；任何断耳、断尾、漂浮白片或“同一贴纸整体跳动”都必须重做。
+6. 如果输入只有一张扁平母卡，优先重新生成动画资产包；不得把人物裁成整片后摇动。`--safe-base` 仅用于排错或草稿，禁止作为最终成片。
+7. 输出 H.264 MP4；用户要求动图或需要预览时再输出 GIF。
+8. 使用 ffprobe 或等效方式检查时长、尺寸、帧率、72 帧完整性和可播放性；抽查首帧、中间帧、尾帧，并以 512×768 预览确认动作肉眼可见。
+
+使用脚本前必须阅读 [场景电影感视频配置说明](references/micro-video.md)。
+
+---
+
+## 输出要求
+
+### 默认输出：视频优先
+
+每次默认交付：
+
+- 1 个 3.0 秒、24 fps、72 帧、无声、无缝循环 H.264 MP4
+- 1 张对应静态母卡 PNG
+- 可选 GIF 预览；GIF 不作为最高画质母版
+
+静态母卡要求：
+
+- 单人全身清晰
+- 类别明确
+- 卡面完整
+- 头壳、五官、比例稳定
+- 背景丰富
+- 有1个姿态模板
+- 有1个底部宠物
+- 必须同时交付可复原母卡的干净底板、锁定前景和父子分层素材
+
+### 可选输出模式
+#### A. 单张静态卡面
+仅当用户明确说“只要静态图”时使用，只输出成品卡。
+
+#### B. 组图传播卡
+上半部分放原图，下半部分放QQ秀成品卡
+适合抖音组图传播
+
+#### C. 双角色对比卡
+男 / 女并排
+需特别注意：
+- 比例协调
+- 男生头不能显大
+- 两人世界观统一
+
+#### D. 3 秒微动视频
+- 固定 24 fps、72 帧、无声、固定镜头
+- 母卡固定 1024×1536、2:3；平台画布只可完整嵌套，不可裁卡
+- 5–8 个清楚动作，人物可完全锁定；宠物、环境、UI 与 FRAME_FX 动作不可缺失
+- MP4 为发布母版，GIF 为兼容预览
+
+---
+
+## 质量检查清单
+生成结果必须自检以下内容：
+
+1. 头型是否稳定？
+2. 五官是否还是同一套角色面板逻辑？
+3. 人物比例是否正常？
+4. 是否摆脱了单纯站桩感？
+5. 是否加入了合适的小宠物？
+6. 宠物是否抢戏？
+7. 标签和文字是否工整？
+8. 背景是否丰富但不乱？
+9. 是否有明显的QQ秀/Y2K卡面气质？
+10. 若请求视频，是否实际交付可播放的 3 秒 MP4？
+11. 首尾是否无缝，文字、脸、边框是否逐帧稳定？
+12. 是否达到 5–8 个连贯且手机端可见的动作，并正确归属于宠物、发梢/衣摆、环境、状态灯和 FRAME_FX？
+13. 是否符合 1024×1536、2:3、成年修长全身人物与统一 UI 母版？
+14. 顶部主题牌、左右轨、四角和底栏是否连续闭合、完全落在画布内且没有被场景覆盖？
+15. 外框是否只有局部宝石/灯珠/徽章在动，而文字与框体几何逐帧稳定？
+16. 宠物是否达到尺寸下限、没有被底栏或暗背景吞没，并且 PET_ONLY 差分能证明主动作清楚可见？
+17. 宠物是否由锁定身体与连续尾巴局部层驱动、轮廓始终连成一体且没有断耳/断尾/白片？发梢是否根部固定、末端柔性弯曲？是否没有默认动态落叶和无语义背景矩形晃动？卡框是否只有宝石/角饰局部闪光且文字稳定？
+
+### 完成交付硬门槛
+
+在回复“已完成”之前必须同时满足：
+
+1. 工作区中存在 `.mp4` 文件，而不只是 PNG。
+2. ffprobe 显示 H.264 视频流、约 3.000 秒、24 fps、72 帧且无意外音轨。
+3. 静止帧能复原母卡；干净底板无残留活动宠物；5–8 个动作无重影、裂缝或错误遮挡。
+4. 最终回复提供 MP4 文件链接；只展示静态预览图不算完成。
+5. 512×768 预览中至少能直接看见宠物主动作、自然环境微动和卡框宝石星芒亮灭；不得交付“数据在变但肉眼像静态图”的视频。
+6. `frame_integrity` 检查通过；四边与四角覆盖完整，且 FRAME_FX 全部位于外框安全区。
+7. `pet_validation` 检查通过：犬猫兔熊高度至少为画布 10%，宠物遮挡率不超过 10%，独立动作在 512×768 预览中达标。
+8. 若交付 GIF 预览，至少 12 fps、36 帧；GIF 不能替代 24 fps MP4 母版。
+
+任一条件不满足时继续制作或明确报告阻塞，不得声称已经生成动图。
 
 
-## 13. Final completion-text lock
+## POST_GENERATION_NOTICE（作者与非商用提示）
 
-When the progress reaches 100%, the lower status line must switch from an in-progress sentence to a completed sentence.
+每次成功交付静态图、视频或其他生成结果后，必须在**聊天文本**中额外显示下面这条提示。
 
-Required final footer text:
-- **身份记录已归档**
+**固定提示文案：**
 
-Do not leave the footer as “水的分析器正在生成档案” after 100%.
+`由「侬若水」制作｜抖音：侬若水｜个人非商业使用免费；转售、付费封装或商用需授权。`
+
+### 显示规则
+- 该提示必须显示在最终交付消息中，让使用者在生成完成后可以直接看到。
+- **不得把这段文字烧录、绘制或嵌入图片、视频、卡框、UI、角色或场景中。**
+- 不改变生成画面本身，不添加视觉水印。
+- 提示应位于文件链接/结果说明之后，作为简短尾注显示。
+- 即使用户要求“无水印”“干净图”，也只保持画面无水印；聊天文本中的作者与非商用提示仍保留。
+- 不需要阻止普通个人用户进行非商业创作或分享；许可重点是防止转售、付费封装、收费服务和其他商业利用。
+- 如用户明确询问商用、收费代做、商业集成或品牌使用，提示其需先联系作者「侬若水」取得授权。
+
+---
+
+## 回归测试
+
+至少用一张暗色 NIGHT 卡与一张明亮 WATERSIDE/RED DATE 卡验证：深浅宠物都达到尺寸下限，PET_ONLY 动作清楚，完整外框和人物脸保持稳定。
+
+---
+
+## 禁止事项
+- 禁止把角色做成过度现代扁平插画
+- 禁止做成日漫海报感
+- 禁止头壳尺寸飘忽
+- 禁止五官重塑成完全不同的人
+- 禁止过度写实背景压过角色
+- 禁止边框系统消失
+- 禁止边框断边、缺角、底栏缺失、标题牌悬空或任何边框被画布裁切
+- 禁止让整圈边框呼吸缩放、漂移、扭曲或频闪；只允许局部 FRAME_FX
+- 禁止宠物过大或抢戏
+- 禁止宠物小于尺寸下限、藏进底栏/鞋边/暗背景，或仅靠环境闪光制造“宠物在动”的错觉
+- 禁止从扁平兔子裁耳并强行动画；禁止宠物出现断耳、断尾、漂浮碎片，或使用相同贴纸配根节点跳动、整只摇摆、`frame_hold>3` 的阶梯式 sprite；禁止发梢整束刚体旋转；禁止默认加入动态落叶；禁止无水场景使用 `water_ripples` 或任何树丛/草地矩形截取晃动
+- 禁止姿态夸张到破坏QQ秀换装人偶逻辑
+- 禁止用整图逐帧生成代替局部透明层合成
+- 禁止为了满足动作数量强制让人物整体漂移、旋转或呼吸缩放
+- 禁止只改变 1–2 px、在手机预览中不可见的伪动效
+- 禁止文字、边框、五官、手指或宠物轮廓在帧间随机变化
+- 禁止默认生成人物眨眼或宠物眨眼；禁止让头发运动进入脸部安全区
+- 禁止仅提供“适合后续动效”的静态图来冒充视频交付
+- 禁止默认加入音乐、语音或版权不明的音频
